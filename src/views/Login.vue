@@ -7,7 +7,6 @@ import AppStore from "@/core/store/AppStore";
 import LoginService from "@/services/LoginService";
 import LanguageComponent from "@/locale/components/LanguageComponent.vue";
 import i18n from "@/locale/Main.js";
-import video from "@/assets/jXRBRK_VAwoAAAAAAAAAAAAAK4eUAQBr.mp4";
 
 const state = reactive({
   userName: "",
@@ -64,20 +63,11 @@ function reset() {
     <div class="lang-content">
       <LanguageComponent />
     </div>
-    <div
-      style="position: absolute; top: 0px; left: 0px; width: 100%; overflow: hidden; height: 100%; z-index: 1; pointer-events: none;">
-      <video ref="videoDom" autoplay playsinline loop muted crossorigin="anonymous"
-        style="width: 100%; height: 100%; object-fit: cover;">
-        <source :src="video" type="video/mp4">
-        您的浏览器不支持 video 标签。
-      </video>
-    </div>
+    <div class="animated-background"></div>
 
     <div class="login">
       <div class="login-card">
-        <div class="flex-left">
-          <img src="../assets/images/info_service.png" alt="" />
-        </div>
+        <div class="login-card-inner">
         <div class="flex-right p-30">
           <div class="title mb-24">{{ $t("login.title") }}</div>
 
@@ -105,26 +95,180 @@ function reset() {
           </div>
         </div>
       </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="less" scoped>
+/* 基础样式 */
 body {
   margin: 0;
   padding: 0;
   overflow: hidden;
 }
 
+/* 苹果风格科技感背景 */
+.animated-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(125deg, #1e2128 0%, #0c1019 100%);
+  overflow: hidden;
+
+  /* 磨砂玻璃网格效果 */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 35%),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 35%),
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.07) 0%, transparent 60%);
+    background-size: 100% 100%;
+    opacity: 0.9;
+    filter: blur(2px);
+    animation: subtleShift 20s ease-in-out infinite alternate;
+  }
+
+  /* 动态粒子效果 - 更精细的苹果风格星尘效果 */
+  &::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background-image:
+      radial-gradient(1.5px 1.5px at 40px 70px, rgba(255, 255, 255, 0.12) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.08) 0%, transparent 100%),
+      radial-gradient(2px 2px at 140px 130px, rgba(255, 255, 255, 0.12) 0%, transparent 100%),
+      radial-gradient(1px 1px at 210px 80px, rgba(255, 255, 255, 0.08) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 240px 180px, rgba(255, 255, 255, 0.12) 0%, transparent 100%),
+      radial-gradient(1px 1px at 280px 40px, rgba(255, 255, 255, 0.08) 0%, transparent 100%),
+      radial-gradient(1px 1px at 320px 120px, rgba(255, 255, 255, 0.12) 0%, transparent 100%),
+      radial-gradient(2px 2px at 390px 60px, rgba(255, 255, 255, 0.08) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 440px 190px, rgba(255, 255, 255, 0.12) 0%, transparent 100%),
+      radial-gradient(1px 1px at 490px 70px, rgba(255, 255, 255, 0.08) 0%, transparent 100%),
+      radial-gradient(2px 2px at 520px 120px, rgba(255, 255, 255, 0.12) 0%, transparent 100%);
+    background-repeat: repeat;
+    background-size: 600px 600px;
+    opacity: 0.3;
+    animation: subtleFloat 80s linear infinite;
+    transform-origin: center center;
+  }
+}
+
+/* 添加苹果风格的动态光晕效果 */
+.animated-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(114, 137, 218, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse at 70% 60%, rgba(59, 178, 184, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse at 10% 90%, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+  filter: blur(50px);
+  opacity: 0.7;
+  mix-blend-mode: screen;
+  animation: breathe 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* 动画定义 */
+@keyframes subtleShift {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes subtleFloat {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes breathe {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(77, 184, 255, 0.3), 0 0 10px rgba(77, 184, 255, 0.2), 0 0 15px rgba(77, 184, 255, 0.1);
+  }
+
+  50% {
+    box-shadow: 0 0 10px rgba(77, 184, 255, 0.4), 0 0 20px rgba(77, 184, 255, 0.3), 0 0 30px rgba(77, 184, 255, 0.2);
+  }
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(77, 184, 255, 0.4); }
-  70% { box-shadow: 0 0 0 10px rgba(77, 184, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(77, 184, 255, 0); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(77, 184, 255, 0);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(77, 184, 255, 0);
+  }
+}
+
+/* 浮动粒子效果 */
+.login::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 2.5%),
+    radial-gradient(circle at 75% 45%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 2.5%),
+    radial-gradient(circle at 35% 60%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 2.5%),
+    radial-gradient(circle at 65% 75%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 2.5%),
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 2.5%),
+    radial-gradient(circle at 15% 85%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 2.5%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 3.5%);
+  background-size: 200% 200%;
+  filter: blur(1px);
+  opacity: 0.8;
 }
 
 .login {
@@ -132,57 +276,72 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  //可以解开一下注解 放置一个背景图片
-  // background: url("../assets/images/login-1.jpg") no-repeat;
-  // background-size: cover;
   position: relative;
-  
+
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
     z-index: 0;
+    backdrop-filter: blur(5px);
   }
 
   .login-card {
-    height: 500px;
-    width: 1000px;
-    box-shadow: 0px 16px 48px 16px rgba(0, 0, 0, 0.5), 0px 12px 32px rgba(0, 0, 0, 0.3), 0px 8px 16px -8px rgba(0, 0, 0, 0.2);
+    height: 450px;
+    width: 400px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
     display: flex;
-    border-radius: 16px;
+    border-radius: 20px;
     z-index: 9;
-    background-color: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     animation: fadeIn 0.8s ease-out;
     position: relative;
     overflow: hidden;
     
+    .login-card-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
+    }
+
     &::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent 45%, rgba(77, 184, 255, 0.05) 50%, transparent 55%);
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06) 15%, rgba(255, 255, 255, 0) 50%);
+      border-radius: 20px;
       z-index: -1;
-      animation: shine 6s infinite linear;
     }
-    
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+      z-index: -1;
+      opacity: 0.8;
+    }
+
     @keyframes shine {
-      0% { transform: translate(-30%, -30%) rotate(0deg); }
-      100% { transform: translate(-30%, -30%) rotate(360deg); }
+      0% {
+        transform: translate(-30%, -30%) rotate(0deg);
+      }
+
+      100% {
+        transform: translate(-30%, -30%) rotate(360deg);
+      }
     }
 
     .flex-left {
       flex: 1;
       width: 450px;
+
       img {
         height: 100%;
       }
@@ -193,21 +352,20 @@ body {
       display: flex;
       justify-content: center;
       flex-direction: column;
-      border-top-right-radius: 16px;
-      border-bottom-right-radius: 16px;
+      border-radius: 20px;
       color: #ffffff;
       padding: 0 40px;
       position: relative;
-      
+
       &::after {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle at top right, rgba(77, 184, 255, 0.05) 0%, transparent 70%);
+        inset: 0;
+        background:
+          radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 60%),
+          radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
         pointer-events: none;
+        opacity: 0.8;
       }
     }
 
@@ -215,81 +373,25 @@ body {
       text-align: center;
       font-size: 32px;
       padding: 20px;
-      font-weight: bold;
+      font-weight: 500;
       color: #ffffff;
-      text-shadow: 0 0 10px rgba(77, 184, 255, 0.5);
       margin-bottom: 20px;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       position: relative;
       animation: fadeIn 0.6s ease-out;
-      
+
       &::after {
         content: '';
         position: absolute;
         bottom: 0;
         left: 50%;
-        width: 60px;
-        height: 3px;
-        background: linear-gradient(90deg, rgba(77, 184, 255, 0.2), rgba(77, 184, 255, 0.8), rgba(77, 184, 255, 0.2));
+        width: 40px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.3);
         transform: translateX(-50%);
-        border-radius: 3px;
+        border-radius: 1px;
       }
     }
-
-    .el-input-group__append {
-      padding: 0 !important;
-
-      .login-code {
-        height: 38px;
-      }
-    }
-  }
-}
-
-//小于 1024 像素 选择采用此样式
-@media (max-width: 1024px) {
-  .flex-left {
-    display: none;
-    flex: 0 !important;
-
-    img {
-      height: auto !important;
-      width: 80% !important;
-    }
-  }
-
-  .flex-right {
-    border-radius: 16px;
-    padding: 0 30px !important;
-  }
-  
-  .login-card {
-    box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.5) !important;
-  }
-}
-
-@media (min-width: 600px) and (max-width: 1024px) {
-  .login-card {
-    width: 70% !important;
-    height: 450px !important;
-  }
-}
-
-@media (max-width: 600px) {
-  .login-card {
-    width: 90% !important;
-    height: auto !important;
-    min-height: 400px;
-    padding: 30px 0;
-  }
-  
-  .title {
-    font-size: 28px !important;
-    padding: 10px !important;
-  }
-  
-  .login-button {
-    height: 44px !important;
   }
 }
 
@@ -298,10 +400,8 @@ body {
   right: 24px;
   top: 20px;
   z-index: 9;
-  animation: fadeIn 0.8s ease-out;
-  animation-delay: 0.6s;
-  animation-fill-mode: both;
-  
+  animation: fadeIn 0.8s ease-out 0.6s both;
+
   &:hover {
     transform: translateY(-2px);
     transition: transform 0.3s ease;
@@ -309,91 +409,93 @@ body {
 }
 
 .custom-input {
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  border-radius: 8px !important;
-  transition: all 0.3s ease !important;
-  margin-bottom: 5px !important;
-  animation: fadeIn 0.8s ease-out;
-  animation-fill-mode: both;
-  animation-delay: 0.2s;
-  
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 14px !important;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  animation: fadeIn 0.8s ease-out 0.2s both;
+  height: 50px !important;
+  backdrop-filter: blur(15px) !important;
+
   &:hover {
-    border: 1px solid rgba(77, 184, 255, 0.4) !important;
-    box-shadow: 0 0 10px rgba(77, 184, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
   }
-  
+
   &:focus-within {
-    border: 1px solid rgba(77, 184, 255, 0.6) !important;
-    box-shadow: 0 0 15px rgba(77, 184, 255, 0.2) !important;
+    border-color: rgba(77, 184, 255, 0.4) !important;
+    box-shadow: 0 0 0 3px rgba(77, 184, 255, 0.15) !important;
+    transform: translateY(-1px) !important;
   }
-  
+
   :deep(input) {
     background-color: transparent !important;
     color: #ffffff !important;
-    transition: all 0.3s ease !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
   }
-  
+
   :deep(.ant-input-affix-wrapper) {
     background-color: transparent !important;
     border: none !important;
   }
+
+  :deep(.ant-input-prefix) {
+    margin-right: 12px !important;
+    opacity: 0.9 !important;
+  }
 }
 
 .login-button {
-  background: linear-gradient(90deg, #1890ff, #4db8ff) !important;
+  background: linear-gradient(135deg, rgba(77, 184, 255, 0.4), rgba(59, 178, 184, 0.4)) !important;
   border: none !important;
-  height: 48px !important;
-  border-radius: 8px !important;
+  height: 50px !important;
+  border-radius: 14px !important;
   font-size: 16px !important;
   font-weight: 500 !important;
   letter-spacing: 1px !important;
-  box-shadow: 0 4px 15px rgba(24, 144, 255, 0.3) !important;
-  transition: all 0.3s ease !important;
+  backdrop-filter: blur(15px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
   position: relative;
   overflow: hidden;
-  animation: fadeIn 0.8s ease-out;
-  animation-fill-mode: both;
-  animation-delay: 0.4s;
-  
-  &:hover {
-    box-shadow: 0 6px 20px rgba(24, 144, 255, 0.4) !important;
-  }
-  
-  &:active {
-    box-shadow: 0 2px 10px rgba(24, 144, 255, 0.3) !important;
-  }
-  
-  &::after {
+  animation: fadeIn 0.8s ease-out 0.4s both;
+
+  &::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 5px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.5);
-    opacity: 0;
-    border-radius: 100%;
-    transform: scale(1, 1) translate(-50%);
-    transform-origin: 50% 50%;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    z-index: -1;
   }
-  
-  &:focus:not(:active)::after {
-    animation: ripple 1s ease-out;
+
+  &:hover {
+    background: linear-gradient(135deg, rgba(77, 184, 255, 0.35), rgba(59, 178, 184, 0.35)) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
   }
-  
+
+  &:active {
+    transform: translateY(1px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    background: linear-gradient(135deg, rgba(77, 184, 255, 0.25), rgba(59, 178, 184, 0.25)) !important;
+  }
+
   @keyframes ripple {
     0% {
-      transform: scale(0, 0);
+      transform: scale(0);
       opacity: 0.5;
     }
+
     20% {
-      transform: scale(25, 25);
+      transform: scale(25);
       opacity: 0.3;
     }
+
     100% {
+      transform: scale(40);
       opacity: 0;
-      transform: scale(40, 40);
     }
   }
 }
