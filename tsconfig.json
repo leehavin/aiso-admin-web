@@ -27,7 +27,7 @@
     "types": [
       "ant-design-vue/typings/global",
       "@types/node",
-      "vxe-table/types/vxe-table"
+      "vxe-table/types"
     ],
   },
   "include": [

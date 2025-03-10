@@ -20,4 +20,13 @@ import i18n from "@/locale/Main.js";
 // ant model 拖拽指令 v-ant-modal-drag
 import { antModalDrag } from './plugins/AntModalDrag.js'
 
-createApp(App).use(createPinia()).use(registerRouter()).use(antd).use(useAllIcons).use(useVXETable).use(print).use(i18n).use(antModalDrag).mount("#app");
+createApp(App)
+    .use(createPinia())
+    .use(registerRouter())
+    .use(antd)
+    .use(useAllIcons)
+    .use(useVXETable)
+    .use(print)
+    .use(i18n)
+    .use(antModalDrag)
+    .mount("#app");

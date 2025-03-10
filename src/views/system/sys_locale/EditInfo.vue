@@ -83,7 +83,7 @@ defineExpose({
         let value = null;
         try {
           value = JSON.parse(res.data?.form.value);
-        } catch (d) {}
+        } catch (d) { }
         res.data.form.value = JSON.stringify({ ...locale, ...value }, null, 2);
       }
 

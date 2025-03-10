@@ -62,7 +62,8 @@ function save() {
 </script>
 
 <template>
-  <a-modal v-model:open="state.visible" :title="state.vm.id ? '编辑' : '新建'" centered @ok="state.visible = false" :width="400">
+  <a-modal v-model:open="state.visible" :title="state.vm.id ? '编辑' : '新建'" centered @ok="state.visible = false"
+    :width="400">
     <template #footer>
       <a-button type="primary" :loading="state.loading" @click="save()"> 提交</a-button>
       <a-button @click="state.visible = false">关闭</a-button>

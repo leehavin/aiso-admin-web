@@ -268,12 +268,12 @@ findBackMethods.initRows();
       state.search.sort = changeTable.sorter instanceof Array ? [...changeTable.sorter] : [changeTable.sorter];
       findList();
     }
-      " @show-size-change="({ current, size }) => {
+    " @show-size-change="({ current, size }) => {
         state.page = current == 0 ? 1 : current;
         state.size = size;
         findList();
       }
-        ">
+      ">
       <!-- search -->
       <template #search>
         <a-form ref="refSearchForm" :model="state.search.vm" v-if="power.search">

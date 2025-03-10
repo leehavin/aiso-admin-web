@@ -81,7 +81,8 @@ function save() {
 </script>
 
 <template>
-  <a-modal v-model:open="state.visible" :title="state.vm.id ? '编辑' : '新建'" centered @ok="state.visible = false" :width="800">
+  <a-modal v-model:open="state.visible" :title="state.vm.id ? '编辑' : '新建'" centered @ok="state.visible = false"
+    :width="800">
     <template #footer>
       <a-button type="primary" :loading="state.loading" @click="save()"> 提交</a-button>
       <a-button @click="state.visible = false">关闭</a-button>
@@ -95,7 +96,8 @@ function save() {
             </a-form-item>
           </a-col>
           <a-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
-            <a-form-item label="账户名称" name="loginName" :rules="[{ required: true, message: '请输入账户名称', trigger: 'blur' }]">
+            <a-form-item label="账户名称" name="loginName"
+              :rules="[{ required: true, message: '请输入账户名称', trigger: 'blur' }]">
               <a-input v-model:value="state.vm.form.loginName" placeholder="请输入" />
             </a-form-item>
           </a-col>
@@ -116,21 +118,14 @@ function save() {
           </a-col>
           <a-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
             <a-form-item label="所属组织">
-              <a-tree-select
-                v-model:value="state.vm.form.organizationId"
-                :dropdown-style="{ maxHeight: '400px', overflow: 'auto' }"
-                placeholder="所属组织"
-                allow-clear
-                tree-default-expand-all
-                show-search
-                tree-node-filter-prop="name"
-                :tree-data="state.organizationTree"
+              <a-tree-select v-model:value="state.vm.form.organizationId"
+                :dropdown-style="{ maxHeight: '400px', overflow: 'auto' }" placeholder="所属组织" allow-clear
+                tree-default-expand-all show-search tree-node-filter-prop="name" :tree-data="state.organizationTree"
                 :field-names="{
                   children: 'children',
                   label: 'name',
                   value: 'id',
-                }"
-              ></a-tree-select>
+                }"></a-tree-select>
             </a-form-item>
           </a-col>
           <a-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">

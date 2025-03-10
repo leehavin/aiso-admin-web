@@ -64,7 +64,8 @@ function save() {
 </script>
 
 <template>
-  <a-modal v-model:open="state.visible" :title="state.vm.id ? '编辑' : '新建'" centered @ok="state.visible = false" :width="400">
+  <a-modal v-model:open="state.visible" :title="state.vm.id ? '编辑' : '新建'" centered @ok="state.visible = false"
+    :width="400">
     <template #footer>
       <a-button type="primary" :loading="state.loading" @click="save()"> 提交</a-button>
       <a-button @click="state.visible = false">关闭</a-button>
@@ -73,7 +74,8 @@ function save() {
       <a-form ref="refForm" layout="vertical" :model="state.vm.form">
         <a-row :gutter="[16, 0]">
           <a-col :xs="24">
-            <a-form-item label="文件名称" name="originalName" :rules="[{ required: true, message: '请输入文件名称', trigger: 'blur' }]">
+            <a-form-item label="文件名称" name="originalName"
+              :rules="[{ required: true, message: '请输入文件名称', trigger: 'blur' }]">
               <a-input v-model:value="state.vm.form.originalName" placeholder="请输入" />
             </a-form-item>
           </a-col>

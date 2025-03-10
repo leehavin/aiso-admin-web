@@ -250,18 +250,14 @@ defineExpose({
 <template>
   <div>
     <PageContainer v-if="!props.isModal">
-      <TableCurd
-        ref="refTableCurd"
-        v-model:config="state"
-        @change="
-          (changeTable) => {
-            state.page = changeTable.pagination.current ?? 1;
-            state.size = changeTable.pagination.pageSize ?? state.size;
-            state.search.sort = changeTable.sorter instanceof Array ? [...changeTable.sorter] : [changeTable.sorter];
-            findList();
-          }
-        "
-        @show-size-change="
+      <TableCurd ref="refTableCurd" v-model:config="state" @change="
+        (changeTable) => {
+          state.page = changeTable.pagination.current ?? 1;
+          state.size = changeTable.pagination.pageSize ?? state.size;
+          state.search.sort = changeTable.sorter instanceof Array ? [...changeTable.sorter] : [changeTable.sorter];
+          findList();
+        }
+      " @show-size-change="
           ({ current, size }) => {
             state.page = current == 0 ? 1 : current;
             state.size = size;
@@ -280,20 +276,17 @@ defineExpose({
               <!--button-->
               <a-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6" class="text-right">
                 <a-space :size="8">
-                  <a-button
-                    @click="
-                      state.page = 1;
-                      refSearchForm?.resetFields();
-                      findList();
-                    ">
+                  <a-button @click="
+                    state.page = 1;
+                  refSearchForm?.resetFields();
+                  findList();
+                  ">
                     重置
                   </a-button>
-                  <a-button
-                    type="primary"
-                    @click="
-                      state.page = 1;
-                      findList();
-                    ">
+                  <a-button type="primary" @click="
+                    state.page = 1;
+                  findList();
+                  ">
                     查询
                   </a-button>
                 </a-space>
@@ -304,8 +297,12 @@ defineExpose({
         <!-- toolbar-left -->
         <template #toolbar-left>
           <a-button @click="state.search.state = !state.search.state" v-if="power.search">
-            <div v-if="state.search.state"><AppIcon name="UpOutlined" />&nbsp;&nbsp;收起</div>
-            <div v-else><AppIcon name="DownOutlined" />&nbsp;&nbsp;展开</div>
+            <div v-if="state.search.state">
+              <AppIcon name="UpOutlined" />&nbsp;&nbsp;收起
+            </div>
+            <div v-else>
+              <AppIcon name="DownOutlined" />&nbsp;&nbsp;展开
+            </div>
           </a-button>
           <a-button type="primary" @click="() => refInfo?.open()" v-if="power.insert">
             <template #icon>
@@ -375,11 +372,13 @@ defineExpose({
                   <CloseOutlined style="font-size: 10px" />
                 </a-button>
               </div>
-              <a-button type="link" @click="() => downloadFile(record)" :disabled="record.percent != undefined">下载</a-button>
+              <a-button type="link" @click="() => downloadFile(record)"
+                :disabled="record.percent != undefined">下载</a-button>
               <a-divider type="vertical" />
               <a href="javascript:;" @click="() => refInfo?.open(record.id)" v-if="power.update">编辑</a>
               <a-divider type="vertical" />
-              <a-popconfirm title="您确定要删除?" @confirm="deleteList(record.id)" okText="确定" cancelText="取消" v-if="power.delete">
+              <a-popconfirm title="您确定要删除?" @confirm="deleteList(record.id)" okText="确定" cancelText="取消"
+                v-if="power.delete">
                 <a class="text-danger">删除</a>
               </a-popconfirm>
             </template>
@@ -394,18 +393,14 @@ defineExpose({
         <a-button @click="modalOpen = false">关闭</a-button>
       </template>
 
-      <TableCurd
-        ref="refTableCurd"
-        v-model:config="state"
-        @change="
-          (changeTable) => {
-            state.page = changeTable.pagination.current ?? 1;
-            state.size = changeTable.pagination.pageSize ?? state.size;
-            state.search.sort = changeTable.sorter instanceof Array ? [...changeTable.sorter] : [changeTable.sorter];
-            findList();
-          }
-        "
-        @show-size-change="
+      <TableCurd ref="refTableCurd" v-model:config="state" @change="
+        (changeTable) => {
+          state.page = changeTable.pagination.current ?? 1;
+          state.size = changeTable.pagination.pageSize ?? state.size;
+          state.search.sort = changeTable.sorter instanceof Array ? [...changeTable.sorter] : [changeTable.sorter];
+          findList();
+        }
+      " @show-size-change="
           ({ current, size }) => {
             state.page = current == 0 ? 1 : current;
             state.size = size;
@@ -424,20 +419,17 @@ defineExpose({
               <!--button-->
               <a-col :xs="24" :sm="12" :md="8" :lg="6" :xl="6" class="text-right">
                 <a-space :size="8">
-                  <a-button
-                    @click="
-                      state.page = 1;
-                      refSearchForm?.resetFields();
-                      findList();
-                    ">
+                  <a-button @click="
+                    state.page = 1;
+                  refSearchForm?.resetFields();
+                  findList();
+                  ">
                     重置
                   </a-button>
-                  <a-button
-                    type="primary"
-                    @click="
-                      state.page = 1;
-                      findList();
-                    ">
+                  <a-button type="primary" @click="
+                    state.page = 1;
+                  findList();
+                  ">
                     查询
                   </a-button>
                 </a-space>
@@ -448,8 +440,12 @@ defineExpose({
         <!-- toolbar-left -->
         <template #toolbar-left>
           <a-button @click="state.search.state = !state.search.state" v-if="power.search">
-            <div v-if="state.search.state"><AppIcon name="UpOutlined" />&nbsp;&nbsp;收起</div>
-            <div v-else><AppIcon name="DownOutlined" />&nbsp;&nbsp;展开</div>
+            <div v-if="state.search.state">
+              <AppIcon name="UpOutlined" />&nbsp;&nbsp;收起
+            </div>
+            <div v-else>
+              <AppIcon name="DownOutlined" />&nbsp;&nbsp;展开
+            </div>
           </a-button>
           <a-button type="primary" @click="() => refInfo?.open()" v-if="power.insert">
             <template #icon>
@@ -511,11 +507,13 @@ defineExpose({
                   <CloseOutlined style="font-size: 10px" />
                 </a-button>
               </div>
-              <a-button type="link" @click="() => downloadFile(record)" :disabled="record.percent != undefined">下载</a-button>
+              <a-button type="link" @click="() => downloadFile(record)"
+                :disabled="record.percent != undefined">下载</a-button>
               <a-divider type="vertical" />
               <a href="javascript:;" @click="() => refInfo?.open(record.id)" v-if="power.update">编辑</a>
               <a-divider type="vertical" />
-              <a-popconfirm title="您确定要删除?" @confirm="deleteList(record.id)" okText="确定" cancelText="取消" v-if="power.delete">
+              <a-popconfirm title="您确定要删除?" @confirm="deleteList(record.id)" okText="确定" cancelText="取消"
+                v-if="power.delete">
                 <a class="text-danger">删除</a>
               </a-popconfirm>
             </template>
