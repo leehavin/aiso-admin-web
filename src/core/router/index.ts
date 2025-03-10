@@ -24,22 +24,25 @@ router.beforeEach((to, from, next) => {
     return next();
   }
 
+  // TODO 路由继续
+  return next()
+
   //动态路由
-  appStore.getUserInfo().then((data: any) => {
-    //创建动态路由
-    let hasRoute = genDynamicRouters(data.menus);
-    appStore.state.userInfo.menus = data.menus;
-    if (hasRoute) {
-      if (getAuthorityByRouteMeta(data, to.meta)) {
-        next()
-      } else {
-        Tools.notice.error(AppConsts.noPowerMessage);
-        next(from.fullPath);
-      }
-    } else {
-      next(to.fullPath)
-    }
-  });
+  // appStore.getUserInfo().then((data: any) => {
+  //   //创建动态路由
+  //   let hasRoute = genDynamicRouters(data.menus);
+  //   appStore.state.userInfo.menus = data.menus;
+  //   if (hasRoute) {
+  //     if (getAuthorityByRouteMeta(data, to.meta)) {
+  //       next()
+  //     } else {
+  //       Tools.notice.error(AppConsts.noPowerMessage);
+  //       next(from.fullPath);
+  //     }
+  //   } else {
+  //     next(to.fullPath)
+  //   }
+  // });
 
 });
 

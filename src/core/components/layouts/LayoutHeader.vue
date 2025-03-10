@@ -72,7 +72,6 @@ function jumpPro() {
     <div class="hzy-header-btn text-danger" @click="jumpPro()" style="font-weight: bold"
       v-if="!coreStore.state.isMobile">
       Pro By React</div>
-    <!-- HzyAdmin 文档 -->
     <a-tooltip>
       <template #title>HzyAdmin 文档</template>
       <div class="hzy-header-btn" @click="jumpDoc" v-if="!coreStore.state.isMobile">

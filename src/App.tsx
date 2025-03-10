@@ -1,12 +1,12 @@
 import { defineComponent, computed } from "vue";
 import { ConfigProvider, Spin } from "ant-design-vue";
-import AppStore from "@/core/store/AppStore.js";
+import AppStore from "@/core/store/AppStore";
 import zhCN from "ant-design-vue/es/locale/zh_CN";
 import enUS from "ant-design-vue/es/locale/en_US";
 import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";
-import ThemeStore from "@/core/store/layouts/ThemeStore.js";
-import HeaderStore from "@/core/store/layouts/HeaderStore.js";
+import ThemeStore from "@/core/store/layouts/ThemeStore";
+import HeaderStore from "@/core/store/layouts/HeaderStore";
 import CoreStore from "@/core/store/layouts/CoreStore";
 import LocaleUtils from "@/utils/LocaleUtils";
 

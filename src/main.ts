@@ -1,6 +1,7 @@
 import { createApp } from "vue";
+// 确保TypeScript能够正确识别createApp
 //app
-import App from "./App.js";
+import App from "./App";
 //vue 路由
 import { registerRouter } from "@/core/router/index.js";
 //pinia
