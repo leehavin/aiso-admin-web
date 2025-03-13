@@ -64,8 +64,8 @@ onMounted(() => {
 
 <template>
   <!-- 左侧模式 -->
-  <div class="hzy-left-nav" v-if="menuStore.state.menuMode == EMenuMode.left">
-    <div class="hzy-logo">
+  <div class="aiso-left-nav" v-if="menuStore.state.menuMode == EMenuMode.left">
+    <div class="aiso-logo">
       <img :src="logo" width="80" alt="logo" />
     </div>
     <ul>
@@ -86,7 +86,7 @@ onMounted(() => {
     </ul>
   </div>
   <!-- 顶部模式 -->
-  <ul class="hzy-one-nav" v-if="menuStore.state.menuMode == EMenuMode.top">
+  <ul class="aiso-one-nav" v-if="menuStore.state.menuMode == EMenuMode.top">
     <li v-for="item in appStore.state.oneLevels" :key="methods.getJumpUrl(item)"
       :class="{ active: methods.getJumpUrl(item) == state.selectedKey }"
       @click="methods.onMenuSelected(methods.getJumpUrl(item))">
@@ -99,7 +99,7 @@ onMounted(() => {
 </template>
 
 <style lang="less" scoped>
-.hzy-left-nav {
+.aiso-left-nav {
   background-color: #000000;
   z-index: 7;
   box-shadow: 8px 0px 2px 0 rgba(0, 0, 0, 0.1);
@@ -142,7 +142,7 @@ onMounted(() => {
   }
 }
 
-.hzy-one-nav {
+.aiso-one-nav {
   margin: 0;
   padding: 0;
   list-style: none;

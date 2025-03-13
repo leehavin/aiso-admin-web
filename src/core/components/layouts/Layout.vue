@@ -4,7 +4,7 @@ import LayoutSettings from "./LayoutSettings.vue";
 </script>
 
 <template>
-  <div class="hzy-layout">
+  <div class="aiso-layout">
     <LayoutMode1 />
     <!--设置弹框-->
     <LayoutSettings />

@@ -45,9 +45,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="hzy-icon-list">
+  <div class="aiso-icon-list">
     <div style="display: flex; align-items: center; justify-content: center">
-      <div class="hzy-icon-show">
+      <div class="aiso-icon-show">
         <AppIcon :name="props.name" :size="40" color="#fff" />
       </div>
       <h4 class="ml-10">
@@ -88,10 +88,10 @@ onMounted(() => {
 </template>
 
 <style scoped lang="less">
-.hzy-icon-list {
+.aiso-icon-list {
   text-align: center;
 
-  .hzy-icon-show {
+  .aiso-icon-show {
     width: 50px;
     height: 50px;
     line-height: 50px;

@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { reactive } from "vue";
 import AppIcon from "@/core/components/AppIcon.vue";
-import hzyImg from "@/assets/hzy.jpg";
+import aisoImg from "@/assets/hzy.jpg";
 
 const state = reactive({
-  imgPath: hzyImg,
+  imgPath: aisoImg,
   deadline: Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30,
 });
 
@@ -26,13 +26,13 @@ function onFinish() {
             </a-col>
             <a-col :span="16" :order="2">
               <div class="fs-16">
-                <a target="_black" href="https://gitee.com/hzy6" class="text-cyan">HZY</a>
+                
               </div>
               <div class="fs-16">
-                <a target="_black" href="https://gitee.com/hzy6/hzy-admin-spa-ui" class="text-blue">源码</a>
+                
               </div>
               <div class="fs-16">
-                <a target="_black" href="https://next.antdv.com/components/overview-cn" class="text-danger">组件官网：Ant Design Vue</a>
+                
               </div>
             </a-col>
           </a-row>

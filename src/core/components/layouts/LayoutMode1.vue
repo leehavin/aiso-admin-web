@@ -32,9 +32,9 @@ let left = computed(() => {
     <!-- 菜单 -->
     <LayoutSider/>
     <!-- 头部 -->
-    <a-card :bordered="false" :bodyStyle="{ padding: 0 }" class="hzy-header-content"
+    <a-card :bordered="false" :bodyStyle="{ padding: 0 }" class="aiso-header-content"
             :style="{ left, borderRadius: 0, boxShadow: 'none' }">
-      <div class="hzy-ground-glass">
+      <div class="aiso-ground-glass">
         <LayoutHeaderVue/>
         <LayoutTabsVue/>
       </div>
@@ -55,7 +55,7 @@ let left = computed(() => {
 
         <!-- 返回顶部 -->
         <a-back-top/>
-        <a-layout-footer style="text-align: center">{{ appStore.state.title }} ©{{ year }} created by hzy
+        <a-layout-footer style="text-align: center">{{ appStore.state.title }} ©{{ year }} created by aiso
         </a-layout-footer>
       </a-layout-content>
     </a-layout>
@@ -63,7 +63,7 @@ let left = computed(() => {
 </template>
 
 <style lang="less">
-.hzy-layout {
+.aiso-layout {
   .ant-layout {
      //background-color: #ffffff;
 
@@ -77,7 +77,7 @@ let left = computed(() => {
       position: relative;
     }
 
-    .hzy-header-content {
+    .aiso-header-content {
       position: fixed;
       z-index: 9;
       right: 0;
@@ -85,7 +85,7 @@ let left = computed(() => {
       padding: 0;
     }
 
-    .hzy-ground-glass {
+    .aiso-ground-glass {
       // 透明样式
       // position: absolute;
       // left: 0;

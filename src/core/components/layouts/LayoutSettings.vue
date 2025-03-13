@@ -28,7 +28,7 @@ const changeColorPrimary = debounce((color:any) => {
 </script>
 
 <template>
-  <a-drawer class="hzy-settings" placement="right" width="350px" :closable="false"
+  <a-drawer class="aiso-settings" placement="right" width="350px" :closable="false"
     v-model:open="settingsStore.state.show">
 
     <a-divider>白昼 / 黑夜</a-divider>
@@ -45,9 +45,9 @@ const changeColorPrimary = debounce((color:any) => {
     </div>
 
     <a-divider>品牌色</a-divider>
-    <div class="hzy-skin-list mb-5 text-center">
+    <div class="aiso-skin-list mb-5 text-center">
       <template v-for="(item, index) in themeStore.colorPrimaryList" :key="index">
-        <div class="hzy-skin-item" :style="{ backgroundColor: item.colorPrimary }"
+        <div class="aiso-skin-item" :style="{ backgroundColor: item.colorPrimary }"
           @click="themeStore.changeColorPrimary(item)"></div>
       </template>
     </div>
@@ -58,7 +58,7 @@ const changeColorPrimary = debounce((color:any) => {
 
     <a-divider>基础文本 / 基础背景颜色</a-divider>
     <div class="mt-24 text-center">
-      <div class="hzy-skin-list mb-5 text-center">
+      <div class="aiso-skin-list mb-5 text-center">
         <a-space>
           <a-button type="link">基础背景色</a-button>
           <a-input v-model:value="themeStore.state.tokenTheme!.colorBgBase" />
@@ -76,9 +76,9 @@ const changeColorPrimary = debounce((color:any) => {
 
     <a-divider>菜单颜色</a-divider>
     <div class="mt-24 text-center">
-      <div class="hzy-skin-list mb-5 text-center">
+      <div class="aiso-skin-list mb-5 text-center">
         <template v-for="(item, index) in themeStore.menuThemeList" :key="index">
-          <div class="hzy-skin-item" style="border: 1px solid #67c23a" :style="{ backgroundColor: item.colorItemBg }"
+          <div class="aiso-skin-item" style="border: 1px solid #67c23a" :style="{ backgroundColor: item.colorItemBg }"
             @click="themeStore.changeMenuTheme(index)"></div>
         </template>
       </div>
@@ -96,14 +96,14 @@ const changeColorPrimary = debounce((color:any) => {
 </template>
 
 <style lang="less" scoped>
-.hzy-settings {
-  .hzy-skin-list {
+.aiso-settings {
+  .aiso-skin-list {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 
-    .hzy-skin-item {
+    .aiso-skin-item {
       width: 40px;
       height: 40px;
       margin: 8px;

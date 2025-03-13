@@ -22,7 +22,7 @@ const { token } = useToken();
     :drawerStyle="{ background: token.Menu?.colorItemBg }"
     width="250px"
     v-if="coreStore.state.isMobile"
-    class="hzy-menu"
+    class="aiso-menu"
   >
     <LayoutLogoVue />
     <LayoutMenuVue />

@@ -62,7 +62,7 @@ const tabsTheme = computed(() => {
 </script>
 
 <template>
-  <div class="hzy-tabs">
+  <div class="aiso-tabs">
     <ConfigProvider
       :theme="{
         components: {
@@ -106,7 +106,7 @@ const tabsTheme = computed(() => {
 </template>
 
 <style lang="less" scope>
-.hzy-tabs {
+.aiso-tabs {
   .ant-tabs-nav {
     margin: 0 !important;
 

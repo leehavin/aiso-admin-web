@@ -18,13 +18,13 @@ const logoColor = computed(() => {
 </script>
 
 <template>
-  <div class="hzy-logo" :style="{ color: logoColor }" v-if="!menuStore.state.isCollapse">
+  <div class="aiso-logo" :style="{ color: logoColor }" v-if="!menuStore.state.isCollapse">
     {{ AppConsts.appTitle }}
   </div>
 </template>
 
 <style>
-.hzy-logo {
+.aiso-logo {
   font-size: 16px;
   overflow: hidden;
   display: flex;

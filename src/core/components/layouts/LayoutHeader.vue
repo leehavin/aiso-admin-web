@@ -23,7 +23,7 @@ const themeStore = ThemeStore();
 /**
  * 用于计算鼠标移动到功能按钮时背景色计算
  */
-const hzyHeaderBtnHover = computed(() => {
+const aisoHeaderBtnHover = computed(() => {
   if (themeStore.state.isDark) {
     return "rgba(255, 255, 255, 0.2)";
   }
@@ -56,8 +56,8 @@ function jumpPro() {
 </script>
 
 <template>
-  <a-layout-header class="hzy-layout-header">
-    <div class="hzy-header-btn" @click="menuStore.onChangeCollapse(!menuStore.state.isCollapse)">
+  <a-layout-header class="aiso-layout-header">
+    <div class="aiso-header-btn" @click="menuStore.onChangeCollapse(!menuStore.state.isCollapse)">
       <!-- <a-tooltip>
         <template #title>菜单收展</template>
 <AppIcon :name="menuStore.state.isCollapse ? 'MenuUnfoldOutlined' : 'MenuFoldOutlined'" :size="iconSize" />
@@ -68,23 +68,11 @@ function jumpPro() {
       <LayoutOneLevelMenu />
     </div>
     <div style="flex: 1 1 0%" v-else></div>
-    <!-- Pro -->
-    <div class="hzy-header-btn text-danger" @click="jumpPro()" style="font-weight: bold"
-      v-if="!coreStore.state.isMobile">
-      Pro By React</div>
-    <a-tooltip>
-      <template #title>HzyAdmin 文档</template>
-      <div class="hzy-header-btn" @click="jumpDoc" v-if="!coreStore.state.isMobile">
-        <a-badge status="success" dot>
-          <AppIcon name="rocket-outlined" :size="iconSize" />
-        </a-badge>
-      </div>
-    </a-tooltip>
 
     <!-- 刷新当前选项卡 -->
     <a-tooltip>
       <template #title>刷新当前选项卡</template>
-      <div class="hzy-header-btn" @click="onReload">
+      <div class="aiso-header-btn" @click="onReload">
         <AppIcon name="ReloadOutlined" :size="iconSize" />
       </div>
     </a-tooltip>
@@ -92,7 +80,7 @@ function jumpPro() {
     <!-- 全屏 -->
     <a-tooltip>
       <template #title>全屏</template>
-      <div class="hzy-header-btn" @click="toggle" v-if="!coreStore.state.isMobile">
+      <div class="aiso-header-btn" @click="toggle" v-if="!coreStore.state.isMobile">
         <AppIcon :name="isFullscreen ? 'FullscreenExitOutlined' : 'FullscreenOutlined'" :size="iconSize" />
       </div>
     </a-tooltip>
@@ -100,7 +88,7 @@ function jumpPro() {
     <!-- 白昼 / 黑夜 -->
     <a-tooltip>
       <template #title>白昼 / 黑夜</template>
-      <div class="hzy-header-btn" @click="themeStore.changeTheme(!themeStore.state.isDark)">
+      <div class="aiso-header-btn" @click="themeStore.changeTheme(!themeStore.state.isDark)">
         <AppIcon name="MoonNight" :size="iconSize + 5" style="color:white" v-if="themeStore.state.isDark" />
         <AppIcon name="Sunny" :size="iconSize + 5" v-else />
       </div>
@@ -108,13 +96,13 @@ function jumpPro() {
 
     <!-- 国际化 -->
     <LanguageComponent>
-      <div class="hzy-header-btn">
+      <div class="aiso-header-btn">
         <AppIcon name="TranslationOutlined" :size="iconSize" />
       </div>
     </LanguageComponent>
 
     <a-dropdown>
-      <div class="hzy-header-btn">
+      <div class="aiso-header-btn">
         <AppIcon name="UserOutlined" :size="iconSize" />
         &nbsp;&nbsp;
         <span>{{ appStore.state.userInfo.name ? appStore.state.userInfo.name : "未知用户" }}</span>
@@ -133,7 +121,7 @@ function jumpPro() {
     <!-- 界面设置 -->
     <a-tooltip>
       <template #title>界面设置</template>
-      <div class="hzy-header-btn" @click="settingsStore.isShow()">
+      <div class="aiso-header-btn" @click="settingsStore.isShow()">
         <AppIcon name="SettingOutlined" :size="iconSize" />
       </div>
     </a-tooltip>
@@ -141,7 +129,7 @@ function jumpPro() {
 </template>
 
 <style lang="less">
-.hzy-layout {
+.aiso-layout {
 
   //覆盖样式
   .ant-layout-header {
@@ -153,7 +141,7 @@ function jumpPro() {
   }
 
   //=======// 头部
-  .hzy-layout-header {
+  .aiso-layout-header {
     padding: 0;
     position: relative;
     display: flex;
@@ -167,7 +155,7 @@ function jumpPro() {
     /* Safari 和 Chrome */
     -o-transition: background-color 0.1s;
 
-    .hzy-header-btn {
+    .aiso-header-btn {
       padding: 0 8px;
       cursor: pointer;
       height: 100%;
@@ -176,8 +164,8 @@ function jumpPro() {
       align-items: center;
     }
 
-    .hzy-header-btn:hover {
-      background: v-bind("hzyHeaderBtnHover");
+    .aiso-header-btn:hover {
+      background: v-bind("aisoHeaderBtnHover");
     }
   }
 }

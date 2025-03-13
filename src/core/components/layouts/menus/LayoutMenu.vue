@@ -84,7 +84,7 @@ function onMenuSelected(obj: any) {
 </template>
 
 <style lang="less">
-.hzy-menu {
+.aiso-menu {
   .ant-menu {
     border-inline-end: 0 !important;
   }

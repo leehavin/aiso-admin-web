@@ -43,7 +43,7 @@ class AppConsts {
   /**
    * 系统标题
    */
-  static appTitle: string = "HzyAdmin";
+  static appTitle: string = "AiSo";
 
   /**
    * 默认首页标签页信息配置

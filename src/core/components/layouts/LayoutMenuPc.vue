@@ -19,7 +19,7 @@ const {token} = useToken();
       v-model:collapsed="menuStore.state.isCollapse"
       :collapsedWidth="menuStore.state.width"
       :width="menuStore.state.width"
-      class="hzy-menu"
+      class="aiso-menu"
       style="overflow: hidden; overflow-y: auto; height: 100vh"
       :style="{ backgroundColor: token.Menu?.colorItemBg }"
   >
@@ -29,7 +29,7 @@ const {token} = useToken();
 </template>
 
 <style lang="less" scoped>
-.hzy-logo {
+.aiso-logo {
   font-weight: bold;
   font-size: 20px;
   min-height: 90px;
