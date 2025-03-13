@@ -67,4 +67,3 @@ iframe {
   height: calc(100vh - 90px);
 }
 </style>
-@/core/router/index1.js

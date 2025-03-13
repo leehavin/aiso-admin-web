@@ -324,4 +324,3 @@ function jumpDetails(row: any) {
     <Info ref="refInfo" :onSuccess="() => findList()" />
   </PageContainer>
 </template>
-@/core/router/index1.js

@@ -13,12 +13,12 @@ class AppConsts {
   /**
    * token 键值
    */
-  static tokenKey: string = "Authorization_HZY_ADMIN_SPA"
+  static tokenKey: string = "Authorization_AISO_ADMIN_SPA"
 
   /**
    * 刷新token 键值
    */
-  static refreshTokenKey: string = "RefreshToken_HZY_ADMIN_SPA";
+  static refreshTokenKey: string = "RefreshToken_AISO_ADMIN_SPA";
 
   /**
    * Guid Empty String
@@ -33,7 +33,7 @@ class AppConsts {
   /**
    * app 前缀 用于浏览器本地缓存 key 的前缀
    */
-  static appPrefix: string = `HzyAdminAntdVue-${domainName}`
+  static appPrefix: string = `AISOAdminAntdVue-${domainName}`
 
   /**
    * 用于请求头部授权码key名称

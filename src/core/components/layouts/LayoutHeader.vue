@@ -170,4 +170,3 @@ function jumpPro() {
   }
 }
 </style>
-@/core/router/index1.js

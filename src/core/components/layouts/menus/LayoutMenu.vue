@@ -90,4 +90,3 @@ function onMenuSelected(obj: any) {
   }
 }
 </style>
-@/core/router/index1.js

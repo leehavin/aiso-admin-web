@@ -5,7 +5,7 @@ import router from "@/core/router/index.js";
 import MenuStore, { EMenuMode } from "@/core/store/layouts/MenuStore";
 import AppStore from "@/core/store/AppStore";
 import ThemeStore from "@/core/store/layouts/ThemeStore";
-import logo from "@/assets/hzy.jpg";
+import logo from "@/assets/logo.png";
 import { translate } from "@/locale/Main.js";
 
 const menuStore = MenuStore();
@@ -194,4 +194,3 @@ onMounted(() => {
   }
 }
 </style>
-@/core/router/index1.js

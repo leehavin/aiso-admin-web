@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { reactive } from "vue";
 import AppIcon from "@/core/components/AppIcon.vue";
-import aisoImg from "@/assets/hzy.jpg";
+import aisoImg from "@/assets/logo.png";
 
 const state = reactive({
   imgPath: aisoImg,

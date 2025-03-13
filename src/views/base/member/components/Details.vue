@@ -11,4 +11,3 @@ const { id, title } = params;
     带过来的title参数是：{{ title }}<br />
   </div>
 </template>
-@/core/router/index1.js

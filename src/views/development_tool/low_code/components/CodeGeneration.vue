@@ -7,7 +7,7 @@ import CodeGenerationService from "@/services/development_tool/low_code/CodeGene
 //定义组件事件
 const props = defineProps<{ rowData: any }>();
 
-const codeType = ref("HZY.Models");
+const codeType = ref("AISO.Models");
 const loading = ref(false);
 const csharpEditorContainer = ref<HTMLElement>();
 // 修改 monaco editor 默认的右键菜单中的剪切、复制和粘贴菜单项的文本
@@ -70,7 +70,7 @@ async function getCode() {
   standaloneCodeEditor?.setValue(result?.data?.code);
 
   // 切换编辑器语言
-  if (codeType.value == "HZY.Models" || codeType.value == "HZY.Services.Admin" || codeType.value == "HZY.Controllers.Admin") {
+  if (codeType.value == "AISO.Models" || codeType.value == "AISO.Services.Admin" || codeType.value == "AISO.Controllers.Admin") {
     monaco.editor.setModelLanguage(standaloneCodeEditor?.getModel()!, "csharp");
   }
 
@@ -111,9 +111,9 @@ function downloadAll() {
     <div class="mb-16">
       <a-spin :spinning="loading">
         <a-radio-group v-model:value="codeType">
-          <a-radio-button value="HZY.Models">实体</a-radio-button>
-          <a-radio-button value="HZY.Services.Admin">服务</a-radio-button>
-          <a-radio-button value="HZY.Controllers.Admin">控制器</a-radio-button>
+          <a-radio-button value="AISO.Models">实体</a-radio-button>
+          <a-radio-button value="AISO.Services.Admin">服务</a-radio-button>
+          <a-radio-button value="AISO.Controllers.Admin">控制器</a-radio-button>
           <a-radio-button value="Client.Index">客户端列表页</a-radio-button>
           <a-radio-button value="Client.Info">客户端表单页</a-radio-button>
           <a-radio-button value="Client.Service">客户端服务</a-radio-button>

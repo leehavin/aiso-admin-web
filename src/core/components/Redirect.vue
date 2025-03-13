@@ -15,4 +15,3 @@ onMounted(() => {
     <a-spin />
   </div>
 </template>
-@/core/router/index1.js

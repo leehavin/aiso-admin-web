@@ -141,4 +141,3 @@ const tabsTheme = computed(() => {
   }
 }
 </style>
-@/core/router/index1.js

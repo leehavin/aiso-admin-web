@@ -19,5 +19,4 @@ setTimeout(() => {
 a {
   font-size: 25px;
 }
-</style>
-@/core/router/index1.js
+</style> 

@@ -105,7 +105,7 @@ function findList() {
     for (let i = 0; i < 100; i++) {
       data.push({
         key: i + 1,
-        name: `Hzy ${i + 1}`,
+        name: `AISO ${i + 1}`,
         age: 18 + i,
         address: `addr. ${i + 1}`,
         column1: `London Park no. ${i}`,
